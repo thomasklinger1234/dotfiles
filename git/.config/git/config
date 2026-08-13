@@ -1,0 +1,52 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Thomas Klinger
+	email = 39558817+thomasklinger1234@users.noreply.github.com
+	signingkey = 514DC42AC46E4BFB96FEC47ED5360D4355F0577D
+[github]
+	user = thomasklinger1234
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[push]
+	default = simple
+[merge]
+	tool = vimdiff
+	conflictStyle = zdiff3
+[pager]
+	branch = less --quit-if-one-screen
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+	whitespace = trailing-space,space-before-tab
+	untrackedCache = true
+	pager = less
+	autocrlf = input
+[color]
+	ui = auto
+[alias]
+	a = add
+	b = branch
+	c = commit
+	ca = commit --amend
+	co = checkout
+	d = diff
+	dc = diff --cached
+	fa = fetch --all
+	ll = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset' --abbrev-commit
+	p = pull
+	r = rebase
+	ra = rebase --abort
+	rc = rebase --continue
+	ri = rebase --interactive
+	s = status --column
+	ss = status -s
+	count = shortlog -sn
+	reposize = count-objects -v -H
+	unstage = reset HEAD --

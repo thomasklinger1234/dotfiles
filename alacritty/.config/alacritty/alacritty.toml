@@ -1,0 +1,36 @@
+# configuration for alacritty (https://alacritty.org/config-alacritty.html)
+
+[general]
+live_config_reload = true
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+option_as_alt = "OnlyLeft"
+opacity = 1.0
+startup_mode = "Maximized"
+
+[window.padding]
+x = 5
+y = 5
+
+[font]
+size = 13
+
+[cursor.style]
+shape = "Block"
+blinking = "On"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+save_to_clipboard = false
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[terminal.shell]
+program = "/usr/bin/env"
+args = ["bash"]

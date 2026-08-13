@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
+
+mkdir -p $HOME/.config
+
+STOW_OPTIONS="--target=$HOME"
+
+stow $STOW_OPTIONS alacritty
+stow $STOW_OPTIONS bash
+#stow $STOW_OPTIONS doom
+stow $STOW_OPTIONS emacs
+#stow $STOW_OPTIONS git
+#stow $STOW_OPTIONS nvim
+stow $STOW_OPTIONS starship
+stow $STOW_OPTIONS tmux
+stow $STOW_OPTIONS vim
+
+# https://brew.sh/
+if [ "$(uname)" = "Darwin" ]; then
+  if [ ! -d "/opt/homebrew" ]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+
+  brew bundle install --file ${SCRIPT_DIR}/Brewfile
+  #brew bundle cleanup --file ${SCRIPT_DIR}/Brewfile
+fi
+
+mkdir -p ~/workspace
+mkdir -p ~/bin
