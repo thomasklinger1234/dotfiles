@@ -14,6 +14,7 @@ stow $STOW_OPTIONS btop
 stow $STOW_OPTIONS doom
 stow $STOW_OPTIONS emacs
 stow $STOW_OPTIONS git
+stow $STOW_OPTIONS homebrew
 stow $STOW_OPTIONS nvim
 stow $STOW_OPTIONS starship
 stow $STOW_OPTIONS tmux
@@ -26,8 +27,9 @@ if [ "$(uname)" = "Darwin" ]; then
   fi
 
   brew update
-  brew bundle install --file ${SCRIPT_DIR}/Brewfile
-  #brew bundle cleanup --file ${SCRIPT_DIR}/Brewfile
+
+  brew bundle install --global --upgrade
+  brew bundle cleanup --global
 fi
 
 mkdir -p ~/workspace

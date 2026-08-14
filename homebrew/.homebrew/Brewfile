@@ -18,6 +18,7 @@ brew "btop"
 # editor
 # -------- (vim) --------
 brew "neovim"
+brew "vim"
 brew "fontconfig"
 brew "tree-sitter-cli"
 # -------- (emacs) --------
@@ -43,10 +44,11 @@ brew "curl"
 brew "pkgconf"
 brew "gnupg"
 
-# terminal
-
 # dev-general
 brew "bazel"
+brew "mise"
+brew "vale"
+brew "wrk"
 
 # dev-go
 brew "go"
@@ -57,17 +59,22 @@ brew "nfpm"
 # dev-protobuf
 brew "buf"
 brew "protobuf"
+#brew "grpcui"
+#brew "grpcurl"
+#brew "jsonnet"
 
 # dev-docker
 brew "crane"
 brew "dive"
 brew "hadolint"
+brew "container-structure-test"
 
 # dev-cxx
 brew "clang-format"
 brew "llvm"
 brew "bear"
 brew "cmake"
+brew "lcov"
 
 # dev-lua
 brew "lua"
@@ -81,6 +88,9 @@ brew "shellcheck"
 
 # dev-python
 brew "uv"
+
+# software
+brew "varnish"
 
 # cask
 cask "google-chrome"
