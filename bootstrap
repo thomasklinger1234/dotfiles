@@ -10,6 +10,7 @@ STOW_OPTIONS="--target=$HOME"
 
 stow $STOW_OPTIONS alacritty
 stow $STOW_OPTIONS bash
+stow $STOW_OPTIONS btop
 stow $STOW_OPTIONS doom
 stow $STOW_OPTIONS emacs
 stow $STOW_OPTIONS git
