@@ -65,6 +65,7 @@ brew "clang"
 brew "clang-format"
 brew "llvm"
 brew "bear"
+brew "cmake"
 
 # dev-lua
 brew "lua"
