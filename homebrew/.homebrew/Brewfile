@@ -15,6 +15,8 @@ brew "stow"
 brew "starship"
 brew "btop"
 
+# terminal
+
 # editor
 # -------- (vim) --------
 brew "neovim"
@@ -97,5 +99,6 @@ cask "google-chrome"
 cask "obsidian"
 cask "spotify"
 #cask "docker-desktop"
-# TODO: this is deprecated | cask "alacritty"
 cask "dropbox"
+cask "macpass"
+cask "alacritty"

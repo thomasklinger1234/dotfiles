@@ -51,3 +51,14 @@ go get -u golang.org/x/tools/cmd/guru
 go get -u github.com/cweill/gotests/...
 go get -u github.com/fatih/gomodifytags
 ```
+
+### Post-install: `alacritty`
+
+> Apple could not verify “Alacritty” is free of malware that may harm your Mac or compromise your privacy.
+
+1. Open "System Preferences" / "system Settings" from the Apple menu.
+1. Go to "Security & Privacy".
+1. In the "General" tab, you should see a message at the bottom stating that the application was blocked, in my case it says Alacritty was blocked
+1. Click on the "Open Anyway" button to allow the application to run.
+
+[[Reference](https://dev.to/shihabdotdev/fix-macos-error-alacritty-cant-be-opened-because-apple-cannot-check-it-for-malicious-software-4b69)]
