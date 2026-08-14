@@ -30,6 +30,9 @@ brew "kind"
 brew "k9s"
 brew "kustomize"
 
+# cloud
+brew "awscli"
+
 # github
 brew "gh"
 
