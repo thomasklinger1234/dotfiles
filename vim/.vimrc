@@ -5,6 +5,13 @@
 " Use Vim settings
 set nocompatible
 
+" Enable completion where available.
+" This setting must be set before ALE is loaded.
+"
+" You should not turn this setting on if you wish to use ALE as a completion
+" source for other completion plugins, like Deoplete.
+let g:ale_completion_enabled = 1
+
 """"""""""""""""""""""""""""
 " Plug setup
 " https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
@@ -91,7 +98,7 @@ set smartcase
 set incsearch
 
 " => Completion
-set omnifunc=syntaxcomplete#Complete
+set omnifunc=ale#completion#OmniFunc
 set completeopt=menuone,menu,longest
 set wildmenu
 set wildmode=list:longest
@@ -299,11 +306,9 @@ autocmd BufWritePre  * :call TrimWhiteSpace()
 autocmd FileWritePre * :call TrimWhiteSpace()
 
 set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
