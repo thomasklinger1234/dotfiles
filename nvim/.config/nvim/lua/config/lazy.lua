@@ -126,6 +126,6 @@ vim.g.rustaceanvim = {
 require("trim").setup({
     ft_blocklist =  {"txt"},
     trim_on_write = true,
-    trim_current_line = false,
-    highlight = true,
+    trim_current_line = true,
+    highlight = false,
 })
