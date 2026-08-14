@@ -10,10 +10,10 @@ STOW_OPTIONS="--target=$HOME"
 
 stow $STOW_OPTIONS alacritty
 stow $STOW_OPTIONS bash
-#stow $STOW_OPTIONS doom
+stow $STOW_OPTIONS doom
 stow $STOW_OPTIONS emacs
-#stow $STOW_OPTIONS git
-#stow $STOW_OPTIONS nvim
+stow $STOW_OPTIONS git
+stow $STOW_OPTIONS nvim
 stow $STOW_OPTIONS starship
 stow $STOW_OPTIONS tmux
 stow $STOW_OPTIONS vim
@@ -24,6 +24,7 @@ if [ "$(uname)" = "Darwin" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
+  brew update
   brew bundle install --file ${SCRIPT_DIR}/Brewfile
   #brew bundle cleanup --file ${SCRIPT_DIR}/Brewfile
 fi
