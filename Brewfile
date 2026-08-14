@@ -83,7 +83,6 @@ brew "uv"
 cask "google-chrome"
 cask "obsidian"
 cask "spotify"
-cask "docker"
 cask "docker-desktop"
 cask "alacritty" # TODO: this is deprecated
 cask "dropbox"
