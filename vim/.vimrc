@@ -272,6 +272,7 @@ let g:javascript_plugin_jsdoc = 1
 if &filetype ==# 'rust'
     syntax enable
     let g:rustfmt_autosave = 1
+    let b:ale_fixers = {'rust': ['rustfmt']}
 endif
 
 """""""""""""""""""""""
@@ -307,8 +308,3 @@ autocmd FileWritePre * :call TrimWhiteSpace()
 
 set statusline+=%#warningmsg#
 set statusline+=%*
-
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_enter = 0
