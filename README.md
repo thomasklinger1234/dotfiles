@@ -20,4 +20,13 @@ git clone https://github.com/thomasklinger1234/dotfiles ~/dotfiles
 
 ### Post-install: `alacritty`
 
-- Download from [the .dmg](https://alacritty.org/) and install it
+Download from [the .dmg](https://alacritty.org/) and install it. `brew` marks it as *deprecated*. 
+
+### Post-install: `doom emacs`
+
+Follow the [installation guide](https://github.com/doomemacs/core#install) and run 
+
+```shell
+doom sync
+doom upgrade
+```
