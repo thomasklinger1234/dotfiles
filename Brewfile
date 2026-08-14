@@ -84,5 +84,5 @@ cask "google-chrome"
 cask "obsidian"
 cask "spotify"
 cask "docker-desktop"
-cask "alacritty" # TODO: this is deprecated
+# TODO: this is deprecated | cask "alacritty"
 cask "dropbox"
