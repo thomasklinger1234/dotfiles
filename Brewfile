@@ -53,7 +53,7 @@ brew "nfpm"
 
 # dev-protobuf
 brew "buf"
-brew "protoc"
+brew "protobuf"
 
 # dev-docker
 brew "crane"
