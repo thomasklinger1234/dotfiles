@@ -3,6 +3,7 @@
 (setq custom-file (locate-user-emacs-file "init.custom.el"))
 (load custom-file :no-error-if-file-is-missing)
 
+(setq delete-auto-save-files t)
 (setq auto-save-list-file-prefix "~/.emacs.d/autosave/")
 (setq auto-save-file-name-transforms
       '((".*" "~/.emacs.d/autosave/" t)))
