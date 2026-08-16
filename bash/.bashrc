@@ -13,7 +13,8 @@ alias ...="cd ../../"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:$PATH"
 
 if [ -f $HOME/.zshrc.local ]; then
     source $HOME/.zshrc.local
