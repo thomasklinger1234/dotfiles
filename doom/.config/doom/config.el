@@ -40,7 +40,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Documents/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -76,7 +76,7 @@
 (global-set-key (kbd "C-c x") 'execute-extended-command)
 
 (setq user-full-name "Thomas Klinger"
-      user-mail-address "39558817+thomasklinger1234@users.noreply.github.com ")
+      user-mail-address "39558817+thomasklinger1234@users.noreply.github.com")
 
 ;; Enable auto completion, configure delay, trigger and quitting
 (setq corfu-auto t
