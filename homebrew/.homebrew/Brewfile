@@ -45,6 +45,8 @@ brew "coreutils"
 brew "curl"
 brew "pkgconf"
 brew "gnupg"
+brew "automake"
+brew "libtool"
 
 # dev-general
 brew "bazel"
