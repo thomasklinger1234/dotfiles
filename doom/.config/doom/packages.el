@@ -52,3 +52,8 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+;; GIT GPG INTEGRATION
+;; https://github.com/ecraven/pinentry-emacs
+;; https://emacs.stackexchange.com/questions/64578/emacs-pinentry-not-working-on-emacs-28-0-50-and-ubuntu-20-04
+
+(package! pinentry)

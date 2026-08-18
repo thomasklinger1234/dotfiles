@@ -78,10 +78,22 @@
 (setq user-full-name "Thomas Klinger"
       user-mail-address "39558817+thomasklinger1234@users.noreply.github.com")
 
-;; Enable auto completion, configure delay, trigger and quitting
+;; https://github.com/doomemacs/doomemacs/issues/2426
+;; FIXME Fix for emacs 27
+;; https://github.com/emacs-lsp/lsp-mode/issues/1778
+(setq lsp-gopls-codelens nil)
+
+;; Enable mouse mode for easier navigation
+(add-hook 'after-make-frame-functions
+          (lambda ()
+            (xterm-mouse-mode 1)))
+
+;; CORFU
+;; Autocompletion
+
 (setq corfu-auto t
       corfu-auto-delay 0.2
-      corfu-auto-trigger "." ;; Custom trigger characters
+      corfu-auto-prefix 2
       corfu-quit-no-match 'separator) ;; or t
 
 (add-hook 'corfu-mode-hook
@@ -91,12 +103,44 @@
                         completion-category-overrides nil
                         completion-category-defaults nil)))
 
-;; https://github.com/doomemacs/doomemacs/issues/2426
-;; FIXME Fix for emacs 27
-;; https://github.com/emacs-lsp/lsp-mode/issues/1778
-(setq lsp-gopls-codelens nil)
+;; MAGIT
+;; https://docs.magit.vc/magit/
 
-;; Enable mouse mode for easier navigation
-(add-hook 'after-make-frame-functions
-   (lambda ()
-     (xterm-mouse-mode 1)))
+;; GIT GPG INTEGRATION
+;; https://github.com/ecraven/pinentry-emacs
+;; https://emacs.stackexchange.com/questions/64578/emacs-pinentry-not-working-on-emacs-28-0-50-and-ubuntu-20-04
+(setq epa-pinentry-mode 'loopback)
+(pinentry-start)
+
+(defun pinentry-emacs (desc prompt ok error)
+  (let ((str (read-passwd (concat (replace-regexp-in-string "%22" "\"" (replace-regexp-in-string "%0A" "\n" desc)) prompt ": "))))
+    str))
+
+;; ORG MODE
+;; https://orgmode.org
+
+(defun my/org-capture-meetings-file ()
+  "Create a new file named with the current timestamp in a specific folder."
+  (let* ((title (read-string "Title: "))
+         (filename (format "%s - %s.org" (format-time-string "%Y%m%d") title))
+         (dir (expand-file-name "~/Documents/org/meetings")))
+    (unless (file-exists-p dir)
+      (make-directory dir t))
+    (expand-file-name filename dir)))
+
+(with-eval-after-load 'org
+  (setq org-agenda-files '("~/Documents/org/"))
+  (setq org-default-notes-file "~/Documents/org/notes.org")
+  (setq org-capture-templates
+        '(;; Capture todo items
+          ("t" "Todo" entry (file+headline "~/Documents/org/notes.org" "INBOX NEW")
+           "* TODO %?\n %i\n  %a\n")
+          ;; Capture simple journal entries
+          ("j" "Journal" entry (file+olp+datetree "~/Documents/org/journal.org")
+           "* %?\nEntered on %U\n  %i\n  %a\n")
+          ;; Capture meetings as single files
+          ("m" "Meeting" plain
+           (file my/org-capture-meetings-file)
+           "#+title: TITLE\n#+date: %U\n#+FILETAGS: :work:meeting\n\n** Attendees\n- %?\n\n** Summary\nSUMMARY\n\n** Notes\n- \n\n** Action Items\n- [ ] "
+           :empty-lines 1
+           :unnested t))))
